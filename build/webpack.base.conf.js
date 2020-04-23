@@ -19,7 +19,7 @@ module.exports = {
     app: PATHS.src
   }, 
   output: {
-    filename: `${PATHS.assets}js/[name].js`,
+    filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
     publicPath: ''
   },
@@ -37,7 +37,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]'
+          name: '[name].[hash].[ext]'
         }
       },
       {
@@ -84,7 +84,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].css`
+      filename: `${PATHS.assets}css/[name].[hash].css`
     }),
     new HtmlWebpackPlugin({
       hash: false,
